@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Isaac Balam Rodríguez Arellano | Web & Backend Developer</title>
+  <title>Isaac Balam Rodríguez Arellano | Backend Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -184,16 +184,17 @@
   <header>
     <div class="hero-content">
       <h1>Isaac Balam Rodríguez</h1>
-      <p class="highlight">Web & Backend Developer | Software Engineering Master's Student</p>
+      <p class="highlight">Backend Developer | Cybersecurity & Cloud-Native Projects | Software Engineering Master's Student</p>
       <p>
-        I build backend services, REST APIs and technical applications using Python,
-        FastAPI, SQL, Docker and Linux.
+        I build backend services, REST APIs and security-focused technical applications using Python,
+        FastAPI, PostgreSQL, Docker and Linux.
       </p>
       <p>
-        Interested in web development, cybersecurity, networking and distributed systems.
+        Interested in backend engineering, cybersecurity, networking and distributed systems.
       </p>
 
       <div class="hero-buttons">
+        <a href="https://netsentinel-api.onrender.com/dashboard" target="_blank" class="btn">Live Demo</a>
         <a href="https://github.com/balam0o" target="_blank" class="btn">GitHub</a>
         <a href="cv.pdf" target="_blank" class="btn">View CV</a>
         <a href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/" target="_blank" class="btn btn-secondary">LinkedIn</a>
@@ -206,24 +207,61 @@
     <div class="card">
       <p>
         I am a Software Engineering Master's student focused on backend development,
-        REST API design, databases, cybersecurity-oriented applications and networked systems.
+        REST API design, databases, cybersecurity-oriented applications and distributed systems.
         I enjoy building practical projects that combine software engineering, Linux,
-        networking and data processing.
+        networking, cloud-native tooling and security event processing.
       </p>
     </div>
 
-    <h2>Featured Web Development Projects</h2>
+    <h2>Featured Projects</h2>
+
+    <div class="card">
+      <h3>NetSentinel Lab</h3>
+      <p>
+        Cloud-native security event correlation platform built with FastAPI, PostgreSQL, Docker
+        and a lightweight investigation dashboard. It ingests normalized security events,
+        correlates them into incidents, and supports operational investigation workflows.
+      </p>
+
+      <ul>
+        <li>Built security event ingestion endpoints for generic, Falco-style and Suricata-style events.</li>
+        <li>Implemented configurable incident correlation rules, severity escalation, reopening logic and attack-chain workflows.</li>
+        <li>Designed investigation endpoints for incident detail, timeline, enrichment, CSV export and JSON export.</li>
+        <li>Added API key authentication, Swagger authorization support and a live dashboard with filtering, charts and incident actions.</li>
+        <li>Containerized the application with Docker, added automated tests with pytest and CI with GitHub Actions.</li>
+        <li>Deployed the project publicly on Render with PostgreSQL integration.</li>
+      </ul>
+
+      <div class="tags">
+        <span class="tag">FastAPI</span>
+        <span class="tag">Python</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQLAlchemy</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Render</span>
+        <span class="tag">Cybersecurity</span>
+        <span class="tag">REST API</span>
+        <span class="tag">pytest</span>
+        <span class="tag">GitHub Actions</span>
+      </div>
+
+      <div class="project-links">
+        <a href="https://netsentinel-api.onrender.com/dashboard" target="_blank">Live Demo</a>
+        <a href="https://netsentinel-api.onrender.com/docs" target="_blank">API Docs</a>
+        <a href="https://github.com/balam0o/NetSentinel-lab" target="_blank">View on GitHub</a>
+      </div>
+    </div>
 
     <div class="card">
       <h3>Network Incident API</h3>
       <p>
-        Backend REST API for managing network security incidents, assets and users.
-        The project includes authentication, database migrations, testing and containerized deployment.
+        Backend REST API for managing network security incidents, assets and users,
+        with authentication, relational persistence, automated testing and containerized deployment.
       </p>
 
       <ul>
         <li>Designed REST endpoints for incidents, assets, users and statistics.</li>
-        <li>Implemented authentication using JWT.</li>
+        <li>Implemented authentication with JWT.</li>
         <li>Used PostgreSQL with Alembic migrations.</li>
         <li>Containerized the application with Docker and Docker Compose.</li>
         <li>Added automated tests with pytest.</li>
@@ -241,36 +279,6 @@
 
       <div class="project-links">
         <a href="https://github.com/balam0o/Network-Incident-Api" target="_blank">View on GitHub</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>NetSentinel Lab</h3>
-      <p>
-        Cloud-native cybersecurity lab for ingesting and analyzing security events.
-        The project is designed as a backend foundation for defensive security monitoring.
-      </p>
-
-      <ul>
-        <li>Built an API for security event ingestion.</li>
-        <li>Used PostgreSQL and SQLAlchemy for persistent storage.</li>
-        <li>Configured Docker Compose for local development.</li>
-        <li>Added CI with GitHub Actions.</li>
-        <li>Structured the project as a base for future incident correlation and dashboards.</li>
-      </ul>
-
-      <div class="tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag">Python</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">SQLAlchemy</span>
-        <span class="tag">Docker Compose</span>
-        <span class="tag">GitHub Actions</span>
-        <span class="tag">Cybersecurity</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/balam0o/NetSentinel-lab" target="_blank">View on GitHub</a>
       </div>
     </div>
 
@@ -340,9 +348,9 @@
         <ul>
           <li>REST API development</li>
           <li>FastAPI</li>
-          <li>Authentication with JWT</li>
-          <li>SQL databases</li>
-          <li>Backend testing</li>
+          <li>Authentication with JWT and API keys</li>
+          <li>PostgreSQL / SQLAlchemy</li>
+          <li>Backend testing and API design</li>
         </ul>
       </div>
 
@@ -362,9 +370,9 @@
         <ul>
           <li>Linux</li>
           <li>Git / GitHub</li>
-          <li>Docker</li>
-          <li>Docker Compose</li>
+          <li>Docker / Docker Compose</li>
           <li>GitHub Actions</li>
+          <li>Render deployment</li>
         </ul>
       </div>
 
@@ -373,9 +381,9 @@
         <ul>
           <li>TCP/IP</li>
           <li>Network simulation</li>
-          <li>Cybersecurity fundamentals</li>
           <li>Security event processing</li>
-          <li>Distributed systems</li>
+          <li>Incident-oriented backend workflows</li>
+          <li>Distributed systems fundamentals</li>
         </ul>
       </div>
     </div>
@@ -384,7 +392,7 @@
     <div class="card">
       <p>
         I am currently looking for a Software Engineering internship, especially in
-        web development, backend engineering, cybersecurity-oriented applications,
+        backend engineering, web development, cybersecurity-oriented applications,
         distributed systems or data-driven platforms.
       </p>
     </div>
