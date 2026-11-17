@@ -4,15 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
 
   <title>Isaac Balam Rodríguez | Software & Backend Engineering</title>
 
   <meta name="description"
-        content="Portfolio of Isaac Balam Rodríguez, Master's student at Sorbonne Université seeking a 6-month software engineering internship. Backend development, networking and cybersecurity.">
-
-  <meta name="theme-color" content="#0f172a">
-
-  <!-- FAVICON: CODE ICON -->
+        content="Portfolio of Isaac Balam Rodríguez, Master's student at Sorbonne Université seeking a 6-month software engineering internship in Paris.">
 
   <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M25 18 12 32l13 14M39 18l13 14-13 14' fill='none' stroke='%2338bdf8' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -87,6 +84,12 @@
       text-decoration: none;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -101,6 +104,38 @@
 
     .nav-links a:hover {
       color: var(--accent);
+    }
+
+    /* LANGUAGE SWITCHER */
+
+    .language-switch {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      cursor: pointer;
+      border: 0;
+      border-radius: 5px;
+      padding: 5px 9px;
+      color: var(--muted);
+      background: transparent;
+      font: 600 0.8rem 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    .lang-btn:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent-light);
+      outline-offset: 3px;
     }
 
     /* HERO */
@@ -153,7 +188,7 @@
       margin-top: 30px;
     }
 
-    /* GENERAL BUTTONS - DARK BACKGROUND */
+    /* GENERAL BUTTONS */
 
     .btn {
       display: inline-block;
@@ -176,35 +211,20 @@
       transform: translateY(-2px);
     }
 
-    .btn-secondary {
-      background: var(--background);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-    }
-
-    .btn-secondary:hover {
-      background: var(--surface);
-      color: var(--accent-light);
-      border-color: var(--accent-light);
-    }
-
-    /* CV BUTTONS - LIGHT BLUE BACKGROUND */
+    /* HIGHLIGHTED CV BUTTONS */
 
     .btn-cv {
       background: var(--accent);
       color: var(--background);
-      border: 1px solid var(--accent);
     }
 
     .btn-cv:hover {
       background: var(--accent-light);
       color: var(--background);
       border-color: var(--accent-light);
-      text-decoration: none;
-      transform: translateY(-2px);
     }
 
-    /* MAIN SECTIONS */
+    /* SECTIONS */
 
     main {
       max-width: 1000px;
@@ -214,7 +234,7 @@
 
     section {
       padding: 30px 0;
-      scroll-margin-top: 85px;
+      scroll-margin-top: 100px;
     }
 
     h2 {
@@ -349,16 +369,22 @@
     footer {
       text-align: center;
       padding: 30px 20px;
-      color: #94a3b8;
+      color: var(--muted);
       border-top: 1px solid var(--border);
       font-size: 0.9rem;
     }
 
     /* RESPONSIVE */
 
-    @media (max-width: 700px) {
+    @media (max-width: 850px) {
       .nav-container {
         flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-right {
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 12px;
       }
 
@@ -367,10 +393,12 @@
         gap: 12px;
       }
 
-      .nav-links a {
-        font-size: 0.85rem;
+      section {
+        scroll-margin-top: 155px;
       }
+    }
 
+    @media (max-width: 700px) {
       header {
         padding: 65px 18px;
       }
@@ -386,10 +414,6 @@
       .card {
         padding: 20px;
       }
-
-      section {
-        scroll-margin-top: 135px;
-      }
     }
 
     @media (max-width: 450px) {
@@ -397,6 +421,21 @@
         display: block;
         width: 100%;
         margin: 10px 0;
+      }
+
+      .nav-links a {
+        font-size: 0.82rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .btn,
+      .card {
+        transition: none;
       }
     }
   </style>
@@ -409,19 +448,40 @@
   <nav>
     <div class="nav-container">
 
-      <a class="logo" href="#home">
-        Isaac Balam
-      </a>
+      <a class="logo" href="#home">Isaac Balam</a>
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-right">
+
+        <div class="nav-links">
+          <a href="#about" data-i18n="navAbout">About</a>
+          <a href="#projects" data-i18n="navProjects">Projects</a>
+          <a href="#experience" data-i18n="navExperience">Experience</a>
+          <a href="#education" data-i18n="navEducation">Education</a>
+          <a href="#skills" data-i18n="navSkills">Skills</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="language-switch"
+             role="group"
+             aria-label="Website language">
+
+          <button type="button"
+                  class="lang-btn active"
+                  id="lang-en"
+                  aria-pressed="true">
+            EN
+          </button>
+
+          <button type="button"
+                  class="lang-btn"
+                  id="lang-fr"
+                  aria-pressed="false">
+            FR
+          </button>
+
+        </div>
+
       </div>
-
     </div>
   </nav>
 
@@ -432,33 +492,27 @@
 
       <h1>Isaac Balam Rodríguez</h1>
 
-      <p class="hero-title">
+      <p class="hero-title" data-i18n="heroTitle">
         Software Engineering | Backend Development |
-        Networking & Cybersecurity
+        Networking &amp; Cybersecurity
       </p>
 
-      <p class="hero-description">
+      <p class="hero-description" data-i18n="heroDescription">
         Master's student at Sorbonne Université with professional
         experience in IT infrastructure and network security.
         I build backend applications and REST APIs using Python,
         Java, FastAPI, PostgreSQL and Docker.
       </p>
 
-      <div class="availability">
+      <div class="availability" data-i18n="availability">
         Seeking a 6-month internship | Paris, France
       </div>
 
-      <!-- BUTTON ORDER:
-           1. PROJECTS
-           2. GITHUB
-           3. LINKEDIN
-           4. CV FRANÇAIS
-           5. CV ENGLISH
-      -->
-
       <div class="hero-buttons">
 
-        <a href="#projects" class="btn">
+        <a href="#projects"
+           class="btn"
+           data-i18n="viewProjects">
           View Projects
         </a>
 
@@ -501,32 +555,32 @@
 
     <section id="about">
 
-      <h2>About Me</h2>
+      <h2 data-i18n="aboutHeading">About Me</h2>
 
       <div class="card">
 
-        <p>
+        <p data-i18n="about1">
           I am a Master's student in the DIGIT program at
           Sorbonne Université in Paris, with a background
           in computer science, software development,
           networking and IT infrastructure.
         </p>
 
-        <p>
+        <p data-i18n="about2">
           My recent work focuses on backend engineering:
           designing REST APIs, managing relational databases,
           implementing authentication and automated testing,
           and deploying containerized applications.
         </p>
 
-        <p>
+        <p data-i18n="about3">
           Before pursuing my master's degree, I gained
           professional experience in technical support,
           network security, infrastructure administration
           and software development.
         </p>
 
-        <p>
+        <p data-i18n="about4">
           I am particularly interested in reliable software
           systems, backend architectures, cloud technologies
           and the intersection of software engineering
@@ -540,24 +594,27 @@
 
     <section id="projects">
 
-      <h2>Featured Projects</h2>
+      <h2 data-i18n="projectsHeading">Featured Projects</h2>
 
       <!-- NETSENTINEL -->
 
       <div class="card">
 
-        <span class="featured-label">Featured Project</span>
+        <span class="featured-label"
+              data-i18n="featuredLabel">
+          Featured Project
+        </span>
 
         <h3>NetSentinel Lab</h3>
 
-        <p>
+        <p data-i18n="ns1">
           Security event correlation platform built with
           FastAPI, PostgreSQL and Docker, featuring a
           web-based investigation dashboard and publicly
           deployed backend services.
         </p>
 
-        <p>
+        <p data-i18n="ns2">
           The system processes normalized security events,
           applies configurable correlation rules and
           groups related events into incidents to support
@@ -565,37 +622,37 @@
         </p>
 
         <ul>
-          <li>
+          <li data-i18n="ns3">
             Designed REST endpoints for security event
             ingestion and incident management.
           </li>
 
-          <li>
+          <li data-i18n="ns4">
             Implemented configurable correlation rules,
             severity escalation and incident reopening.
           </li>
 
-          <li>
+          <li data-i18n="ns5">
             Built incident investigation endpoints for
             timelines, enrichment and data export.
           </li>
 
-          <li>
+          <li data-i18n="ns6">
             Implemented API key authentication and
             interactive Swagger documentation.
           </li>
 
-          <li>
+          <li data-i18n="ns7">
             Developed a lightweight dashboard with
             filtering, charts and incident actions.
           </li>
 
-          <li>
+          <li data-i18n="ns8">
             Containerized the application and integrated
             automated tests and GitHub Actions CI.
           </li>
 
-          <li>
+          <li data-i18n="ns9">
             Deployed the application on Render with
             PostgreSQL persistence.
           </li>
@@ -616,17 +673,23 @@
         <div class="project-links">
 
           <a href="https://netsentinel-api.onrender.com/dashboard"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer"
+             data-i18n="liveDemo">
             Live Demo
           </a>
 
           <a href="https://netsentinel-api.onrender.com/docs"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer"
+             data-i18n="apiDocs">
             API Documentation
           </a>
 
           <a href="https://github.com/balam0o/NetSentinel-Lab"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer"
+             data-i18n="githubRepo">
             GitHub Repository
           </a>
 
@@ -640,7 +703,7 @@
 
         <h3>Network Incident API</h3>
 
-        <p>
+        <p data-i18n="ni1">
           Backend REST API for managing network security
           incidents, assets and users, with authentication,
           relational persistence, automated testing and
@@ -648,26 +711,26 @@
         </p>
 
         <ul>
-          <li>
+          <li data-i18n="ni2">
             Designed REST endpoints for incidents,
             assets, users and statistics.
           </li>
 
-          <li>
+          <li data-i18n="ni3">
             Implemented JWT-based authentication.
           </li>
 
-          <li>
+          <li data-i18n="ni4">
             Integrated PostgreSQL and SQLAlchemy
             with Alembic database migrations.
           </li>
 
-          <li>
+          <li data-i18n="ni5">
             Containerized the application using
             Docker and Docker Compose.
           </li>
 
-          <li>
+          <li data-i18n="ni6">
             Added automated API tests using pytest.
           </li>
         </ul>
@@ -685,7 +748,9 @@
         <div class="project-links">
 
           <a href="https://github.com/balam0o/Network-Incident-Api"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer"
+             data-i18n="githubRepo">
             GitHub Repository
           </a>
 
@@ -697,26 +762,28 @@
 
       <div class="card">
 
-        <h3>Network Traffic Simulation with NS2</h3>
+        <h3 data-i18n="ns2Title">
+          Network Traffic Simulation with NS2
+        </h3>
 
-        <p>
+        <p data-i18n="sim1">
           Network simulation project focused on studying
           traffic behavior and performance under constrained
           network conditions.
         </p>
 
         <ul>
-          <li>
+          <li data-i18n="sim2">
             Simulated Poisson traffic across multiple
             network nodes.
           </li>
 
-          <li>
+          <li data-i18n="sim3">
             Analyzed packet loss, network delay
             and throughput.
           </li>
 
-          <li>
+          <li data-i18n="sim4">
             Used simulation results to evaluate
             network performance.
           </li>
@@ -733,15 +800,19 @@
 
       <!-- OTHER PROJECTS -->
 
-      <h2>Other Technical Projects</h2>
+      <h2 data-i18n="otherProjects">
+        Other Technical Projects
+      </h2>
 
       <div class="grid">
 
         <div class="card">
 
-          <h3>Network Traffic Analyzer</h3>
+          <h3 data-i18n="trafficTitle">
+            Network Traffic Analyzer
+          </h3>
 
-          <p>
+          <p data-i18n="trafficText">
             Python command-line tool for analyzing
             network packet captures and extracting
             protocol-level traffic statistics.
@@ -757,7 +828,9 @@
           <div class="project-links">
 
             <a href="https://github.com/balam0o/Network-Traffic-Analyzer"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer"
+               data-i18n="viewRepo">
               View Repository
             </a>
 
@@ -767,9 +840,11 @@
 
         <div class="card">
 
-          <h3>Machine Learning Experiments</h3>
+          <h3 data-i18n="mlTitle">
+            Machine Learning Experiments
+          </h3>
 
-          <p>
+          <p data-i18n="mlText">
             Classification workflows involving data
             preprocessing, feature analysis, model
             evaluation and predictive performance
@@ -787,9 +862,11 @@
 
         <div class="card">
 
-          <h3>Personal Portfolio Website</h3>
+          <h3 data-i18n="portfolioTitle">
+            Personal Portfolio Website
+          </h3>
 
-          <p>
+          <p data-i18n="portfolioText">
             Responsive personal website designed to
             present technical projects, professional
             experience and contact information.
@@ -806,7 +883,9 @@
           <div class="project-links">
 
             <a href="https://github.com/balam0o/balamrodriguez.com"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer"
+               data-i18n="viewRepo">
               View Repository
             </a>
 
@@ -822,19 +901,23 @@
 
     <section id="experience">
 
-      <h2>Professional Experience</h2>
+      <h2 data-i18n="experienceHeading">
+        Professional Experience
+      </h2>
 
       <div class="card">
 
         <div class="experience-item">
 
-          <h3>Technical Support Engineer</h3>
+          <h3 data-i18n="vipreTitle">
+            Technical Support Engineer
+          </h3>
 
           <p class="experience-date">
             Ziff Davis / VIPRE | 2023–2024
           </p>
 
-          <p>
+          <p data-i18n="vipreText">
             Provided technical support and troubleshooting
             for business customers, working with network
             security products, connectivity and
@@ -852,13 +935,15 @@
 
         <div class="experience-item">
 
-          <h3>IT Manager</h3>
+          <h3 data-i18n="managerTitle">
+            IT Manager
+          </h3>
 
           <p class="experience-date">
             Operadora de Servicios Integrales | 2022–2023
           </p>
 
-          <p>
+          <p data-i18n="managerText">
             Worked on IT infrastructure administration,
             technical support and maintenance of internal
             systems and services.
@@ -874,13 +959,15 @@
 
         <div class="experience-item">
 
-          <h3>Software Development Intern</h3>
+          <h3 data-i18n="continentalTitle">
+            Software Development Intern
+          </h3>
 
           <p class="experience-date">
             Continental | 2022
           </p>
 
-          <p>
+          <p data-i18n="continentalText">
             Participated in software development and
             process automation activities using Java.
           </p>
@@ -894,14 +981,13 @@
         </div>
 
       </div>
-
     </section>
 
     <!-- EDUCATION -->
 
     <section id="education">
 
-      <h2>Education</h2>
+      <h2 data-i18n="educationHeading">Education</h2>
 
       <div class="grid">
 
@@ -909,17 +995,15 @@
 
           <h3>Sorbonne Université</h3>
 
-          <p class="subtitle">
-            Paris, France
-          </p>
+          <p class="subtitle">Paris, France</p>
 
           <p>
-            <strong>
+            <strong data-i18n="sorbonneDegree">
               Master's Program — DIGIT
             </strong>
           </p>
 
-          <p>
+          <p data-i18n="sorbonneText">
             Advanced studies in networking,
             distributed systems and digital
             infrastructure technologies.
@@ -931,17 +1015,18 @@
 
           <h3>Universidad de Guadalajara</h3>
 
-          <p class="subtitle">
+          <p class="subtitle"
+             data-i18n="guadalajaraLocation">
             Guadalajara, Mexico
           </p>
 
           <p>
-            <strong>
+            <strong data-i18n="udgDegree">
               Computer Science
             </strong>
           </p>
 
-          <p>
+          <p data-i18n="udgText">
             Academic foundation in programming,
             algorithms, software development,
             computer systems and networking.
@@ -957,13 +1042,17 @@
 
     <section id="skills">
 
-      <h2>Technical Skills</h2>
+      <h2 data-i18n="skillsHeading">
+        Technical Skills
+      </h2>
 
       <div class="grid">
 
         <div class="card">
 
-          <h3>Programming & Backend</h3>
+          <h3 data-i18n="skillsBackend">
+            Programming &amp; Backend
+          </h3>
 
           <div class="tags">
             <span class="tag">Python</span>
@@ -980,7 +1069,9 @@
 
         <div class="card">
 
-          <h3>Databases</h3>
+          <h3 data-i18n="skillsDb">
+            Databases
+          </h3>
 
           <div class="tags">
             <span class="tag">PostgreSQL</span>
@@ -993,7 +1084,9 @@
 
         <div class="card">
 
-          <h3>Cloud & DevOps</h3>
+          <h3 data-i18n="skillsDevops">
+            Cloud &amp; DevOps
+          </h3>
 
           <div class="tags">
             <span class="tag">Docker</span>
@@ -1009,7 +1102,9 @@
 
         <div class="card">
 
-          <h3>Testing & Security</h3>
+          <h3 data-i18n="skillsTesting">
+            Testing &amp; Security
+          </h3>
 
           <div class="tags">
             <span class="tag">pytest</span>
@@ -1024,7 +1119,9 @@
 
         <div class="card">
 
-          <h3>Networking & Systems</h3>
+          <h3 data-i18n="skillsNetworking">
+            Networking &amp; Systems
+          </h3>
 
           <div class="tags">
             <span class="tag">TCP/IP</span>
@@ -1039,7 +1136,9 @@
 
         <div class="card">
 
-          <h3>Data & Machine Learning</h3>
+          <h3 data-i18n="skillsData">
+            Data &amp; Machine Learning
+          </h3>
 
           <div class="tags">
             <span class="tag">Python</span>
@@ -1059,25 +1158,29 @@
 
     <section id="opportunities">
 
-      <h2>What I'm Looking For</h2>
+      <h2 data-i18n="lookingHeading">
+        What I'm Looking For
+      </h2>
 
       <div class="card">
 
-        <h3>6-Month Software Engineering Internship</h3>
+        <h3 data-i18n="lookingTitle">
+          6-Month Software Engineering Internship
+        </h3>
 
-        <p>
+        <p data-i18n="looking1">
           I am seeking a 6-month internship in
           Paris or Île-de-France, starting in
           late 2026 or early 2027.
         </p>
 
-        <p>
+        <p data-i18n="looking2">
           My main interests include backend engineering,
           software development, REST APIs, cloud-based
           applications and networking-related systems.
         </p>
 
-        <p>
+        <p data-i18n="looking3">
           I am also open to opportunities involving
           cybersecurity, distributed systems and applied
           artificial intelligence where software
@@ -1094,11 +1197,10 @@
         </div>
 
         <div class="project-links">
-
-          <a href="mailto:isaac@balamrodriguez.com">
+          <a href="mailto:isaac@balamrodriguez.com"
+             data-i18n="contactMe">
             Contact Me
           </a>
-
         </div>
 
       </div>
@@ -1109,20 +1211,26 @@
 
     <section id="contact">
 
-      <h2>Contact</h2>
+      <h2 data-i18n="contactHeading">Contact</h2>
 
       <div class="card">
 
-        <h3>Let's Connect</h3>
+        <h3 data-i18n="connectTitle">
+          Let's Connect
+        </h3>
 
-        <p>
+        <p data-i18n="connectText">
           Interested in my projects or professional
           background? Feel free to contact me.
         </p>
 
         <p>
-          <strong>Location:</strong>
-          Paris, France
+          <strong data-i18n="locationLabel">
+            Location:
+          </strong>
+          <span data-i18n="parisLocation">
+            Paris, France
+          </span>
         </p>
 
         <p>
@@ -1135,7 +1243,8 @@
         <div class="contact-links">
 
           <a class="btn"
-             href="mailto:isaac@balamrodriguez.com">
+             href="mailto:isaac@balamrodriguez.com"
+             data-i18n="emailMe">
             Email Me
           </a>
 
@@ -1183,11 +1292,373 @@
       &copy; 2026 Isaac Balam Rodríguez Arellano
     </p>
 
-    <p>
-      Built with HTML & CSS · Hosted on GitHub Pages
+    <p data-i18n="footerText">
+      Built with HTML &amp; CSS · Hosted on GitHub Pages
     </p>
 
   </footer>
+
+  <!-- LANGUAGE TRANSLATIONS -->
+
+  <script>
+
+    const translations = {
+
+      fr: {
+
+        /* NAVIGATION */
+
+        navAbout: "À propos",
+        navProjects: "Projets",
+        navExperience: "Expérience",
+        navEducation: "Formation",
+        navSkills: "Compétences",
+        navContact: "Contact",
+
+        /* HERO */
+
+        heroTitle:
+          "Génie logiciel | Développement backend | Réseaux et cybersécurité",
+
+        heroDescription:
+          "Étudiant en master à Sorbonne Université, avec une expérience professionnelle en infrastructure informatique et en sécurité réseau. Je développe des applications backend et des API REST avec Python, Java, FastAPI, PostgreSQL et Docker.",
+
+        availability:
+          "Recherche un stage de 6 mois | Paris, France",
+
+        viewProjects:
+          "Voir les projets",
+
+        /* ABOUT */
+
+        aboutHeading:
+          "À propos de moi",
+
+        about1:
+          "Je suis étudiant dans le master DIGIT à Sorbonne Université, à Paris, avec une formation en informatique, développement logiciel, réseaux et infrastructures informatiques.",
+
+        about2:
+          "Mes projets récents portent sur le développement backend : conception d’API REST, gestion de bases de données relationnelles, mise en place de l’authentification et de tests automatisés, ainsi que déploiement d’applications conteneurisées.",
+
+        about3:
+          "Avant mon master, j’ai acquis une expérience professionnelle dans le support technique, la sécurité réseau, l’administration d’infrastructures et le développement logiciel.",
+
+        about4:
+          "Je m’intéresse particulièrement aux systèmes logiciels fiables, aux architectures backend, aux technologies cloud et aux liens entre le génie logiciel, les réseaux et la cybersécurité.",
+
+        /* PROJECTS */
+
+        projectsHeading:
+          "Projets principaux",
+
+        featuredLabel:
+          "Projet à la une",
+
+        /* NETSENTINEL */
+
+        ns1:
+          "Plateforme de corrélation d’événements de sécurité développée avec FastAPI, PostgreSQL et Docker, comprenant un tableau de bord d’investigation et des services backend déployés publiquement.",
+
+        ns2:
+          "Le système traite des événements de sécurité normalisés, applique des règles de corrélation configurables et regroupe les événements associés en incidents afin de faciliter les investigations de sécurité.",
+
+        ns3:
+          "Conception d’API REST pour l’ingestion d’événements de sécurité et la gestion des incidents.",
+
+        ns4:
+          "Implémentation de règles de corrélation configurables, de l’évolution de la gravité et de la réouverture des incidents.",
+
+        ns5:
+          "Développement d’API d’investigation : chronologies, enrichissement et export de données.",
+
+        ns6:
+          "Mise en place d’une authentification par clé API et d’une documentation Swagger interactive.",
+
+        ns7:
+          "Développement d’un tableau de bord avec filtres, graphiques et actions sur les incidents.",
+
+        ns8:
+          "Conteneurisation de l’application, intégration de tests automatisés et de l’intégration continue avec GitHub Actions.",
+
+        ns9:
+          "Déploiement de l’application sur Render avec persistance des données dans PostgreSQL.",
+
+        liveDemo:
+          "Démonstration",
+
+        apiDocs:
+          "Documentation de l’API",
+
+        githubRepo:
+          "Dépôt GitHub",
+
+        viewRepo:
+          "Voir le dépôt",
+
+        /* NETWORK INCIDENT API */
+
+        ni1:
+          "API REST backend dédiée à la gestion des incidents de sécurité réseau, des équipements et des utilisateurs, avec authentification, stockage relationnel, tests automatisés et exécution conteneurisée.",
+
+        ni2:
+          "Conception de points de terminaison REST pour les incidents, les équipements, les utilisateurs et les statistiques.",
+
+        ni3:
+          "Implémentation d’une authentification basée sur JWT.",
+
+        ni4:
+          "Intégration de PostgreSQL et SQLAlchemy avec des migrations de base de données via Alembic.",
+
+        ni5:
+          "Conteneurisation de l’application avec Docker et Docker Compose.",
+
+        ni6:
+          "Ajout de tests d’API automatisés avec pytest.",
+
+        /* NS2 */
+
+        ns2Title:
+          "Simulation de trafic réseau avec NS2",
+
+        sim1:
+          "Projet de simulation de réseaux visant à étudier le comportement du trafic et les performances dans des conditions réseau contraintes.",
+
+        sim2:
+          "Simulation d’un trafic de Poisson entre plusieurs nœuds du réseau.",
+
+        sim3:
+          "Analyse des pertes de paquets, de la latence et du débit.",
+
+        sim4:
+          "Évaluation des performances réseau à partir des résultats de simulation.",
+
+        /* OTHER PROJECTS */
+
+        otherProjects:
+          "Autres projets techniques",
+
+        trafficTitle:
+          "Analyseur de trafic réseau",
+
+        trafficText:
+          "Outil en ligne de commande développé en Python pour analyser des captures réseau et extraire des statistiques de trafic par protocole.",
+
+        mlTitle:
+          "Expérimentations en apprentissage automatique",
+
+        mlText:
+          "Expérimentations de classification comprenant le prétraitement des données, l’analyse des caractéristiques, l’évaluation des modèles et la comparaison de leurs performances prédictives.",
+
+        portfolioTitle:
+          "Site web personnel",
+
+        portfolioText:
+          "Site personnel responsive présentant mes projets techniques, mon expérience professionnelle et mes coordonnées. Hébergé sur GitHub Pages avec un nom de domaine personnalisé.",
+
+        /* EXPERIENCE */
+
+        experienceHeading:
+          "Expérience professionnelle",
+
+        vipreTitle:
+          "Ingénieur support technique",
+
+        vipreText:
+          "Assistance technique et résolution d’incidents pour des clients professionnels, notamment sur des produits de sécurité réseau, la connectivité et les infrastructures.",
+
+        managerTitle:
+          "Responsable informatique",
+
+        managerText:
+          "Administration d’infrastructures informatiques, support technique et maintenance de systèmes et services internes.",
+
+        continentalTitle:
+          "Stagiaire en développement logiciel",
+
+        continentalText:
+          "Participation au développement logiciel et à l’automatisation de processus en Java.",
+
+        /* EDUCATION */
+
+        educationHeading:
+          "Formation",
+
+        sorbonneDegree:
+          "Master — DIGIT",
+
+        sorbonneText:
+          "Études avancées en réseaux, systèmes distribués et technologies d’infrastructures numériques.",
+
+        guadalajaraLocation:
+          "Guadalajara, Mexique",
+
+        udgDegree:
+          "Informatique",
+
+        udgText:
+          "Formation en programmation, algorithmique, développement logiciel, systèmes informatiques et réseaux.",
+
+        /* SKILLS */
+
+        skillsHeading:
+          "Compétences techniques",
+
+        skillsBackend:
+          "Programmation et backend",
+
+        skillsDb:
+          "Bases de données",
+
+        skillsDevops:
+          "Cloud et DevOps",
+
+        skillsTesting:
+          "Tests et sécurité",
+
+        skillsNetworking:
+          "Réseaux et systèmes",
+
+        skillsData:
+          "Données et apprentissage automatique",
+
+        /* INTERNSHIP */
+
+        lookingHeading:
+          "Ce que je recherche",
+
+        lookingTitle:
+          "Stage de 6 mois en génie logiciel",
+
+        looking1:
+          "Je recherche un stage de 6 mois à Paris ou en Île-de-France, à partir de fin 2026 ou début 2027.",
+
+        looking2:
+          "Je m’intéresse principalement au développement backend, au génie logiciel, aux API REST, aux applications cloud et aux systèmes liés aux réseaux.",
+
+        looking3:
+          "Je suis également ouvert aux opportunités en cybersécurité, systèmes distribués et intelligence artificielle appliquée, lorsque le développement logiciel y joue un rôle central.",
+
+        contactMe:
+          "Me contacter",
+
+        /* CONTACT */
+
+        contactHeading:
+          "Contact",
+
+        connectTitle:
+          "Restons en contact",
+
+        connectText:
+          "Mes projets ou mon parcours professionnel vous intéressent ? N’hésitez pas à me contacter.",
+
+        locationLabel:
+          "Localisation :",
+
+        parisLocation:
+          "Paris, France",
+
+        emailMe:
+          "M’envoyer un e-mail",
+
+        /* FOOTER */
+
+        footerText:
+          "Développé en HTML et CSS · Hébergé sur GitHub Pages"
+
+      }
+    };
+
+    /* SAVE ORIGINAL ENGLISH TEXT */
+
+    const originalEnglish = {};
+
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.dataset.i18n;
+
+      if (!(key in originalEnglish)) {
+        originalEnglish[key] = element.textContent.trim();
+      }
+    });
+
+    /* LANGUAGE CHANGE FUNCTION */
+
+    function changeLanguage(language) {
+
+      const selected = language === 'fr' ? 'fr' : 'en';
+
+      document.documentElement.lang = selected;
+
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+
+        const key = element.dataset.i18n;
+
+        element.textContent =
+          selected === 'fr'
+            ? (translations.fr[key] || originalEnglish[key])
+            : originalEnglish[key];
+
+      });
+
+      /* UPDATE LANGUAGE BUTTONS */
+
+      document.getElementById('lang-en')
+        .classList.toggle('active', selected === 'en');
+
+      document.getElementById('lang-fr')
+        .classList.toggle('active', selected === 'fr');
+
+      document.getElementById('lang-en')
+        .setAttribute('aria-pressed', String(selected === 'en'));
+
+      document.getElementById('lang-fr')
+        .setAttribute('aria-pressed', String(selected === 'fr'));
+
+      /* UPDATE PAGE TITLE */
+
+      document.title = selected === 'fr'
+        ? 'Isaac Balam Rodríguez | Génie logiciel et développement backend'
+        : 'Isaac Balam Rodríguez | Software & Backend Engineering';
+
+      /* UPDATE SEO DESCRIPTION */
+
+      document.querySelector('meta[name="description"]').content =
+        selected === 'fr'
+          ? 'Portfolio d’Isaac Balam Rodríguez, étudiant en master à Sorbonne Université, à la recherche d’un stage de 6 mois en génie logiciel à Paris.'
+          : 'Portfolio of Isaac Balam Rodríguez, Master\'s student at Sorbonne Université seeking a 6-month software engineering internship in Paris.';
+
+      /* REMEMBER SELECTED LANGUAGE */
+
+      try {
+        localStorage.setItem('portfolio-language', selected);
+      } catch (_) {
+        // Storage may be unavailable.
+      }
+
+    }
+
+    /* LANGUAGE BUTTON EVENTS */
+
+    document.getElementById('lang-en')
+      .addEventListener('click', () => changeLanguage('en'));
+
+    document.getElementById('lang-fr')
+      .addEventListener('click', () => changeLanguage('fr'));
+
+    /* RESTORE LANGUAGE ON PAGE LOAD */
+
+    let savedLanguage = 'en';
+
+    try {
+      savedLanguage =
+        localStorage.getItem('portfolio-language') || 'en';
+    } catch (_) {
+      // Default to English.
+    }
+
+    changeLanguage(savedLanguage);
+
+  </script>
 
 </body>
 </html>
