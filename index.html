@@ -1,110 +1,215 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Isaac Balam Rodríguez Arellano | Backend Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Isaac Balam Rodríguez | Software & Backend Engineering</title>
+
+  <meta name="description"
+        content="Portfolio of Isaac Balam Rodríguez, Master's student at Sorbonne Université. Software engineering, backend development, networking and cybersecurity.">
+
   <style>
+    :root {
+      --background: #0f172a;
+      --surface: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --heading: #f8fafc;
+      --accent: #38bdf8;
+      --accent-light: #7dd3fc;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background-color: #0f172a;
-      color: #e2e8f0;
-      line-height: 1.6;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.7;
     }
 
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    /* HERO */
+
     header {
-      padding: 70px 20px;
+      padding: 95px 20px 85px;
       text-align: center;
       background: linear-gradient(135deg, #1e293b, #0f172a);
     }
 
     .hero-content {
       max-width: 850px;
-      margin: 0 auto;
+      margin: auto;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.8rem;
-      color: #f8fafc;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.2;
+      color: var(--heading);
     }
 
-    header p {
-      color: #94a3b8;
-      margin-top: 10px;
-      font-size: 1.08rem;
+    .hero-title {
+      color: var(--accent);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 20px;
     }
 
-    .highlight {
-      color: #38bdf8;
+    .hero-description {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 20px auto;
+    }
+
+    .availability {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      color: #86efac;
+      border: 1px solid #166534;
+      background: rgba(22, 101, 52, 0.12);
+      font-size: 0.9rem;
       font-weight: 600;
     }
 
     .hero-buttons {
-      margin-top: 26px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      margin: 8px;
+      margin: 7px;
       padding: 12px 20px;
-      background-color: #38bdf8;
-      color: #0f172a;
-      font-weight: bold;
       border-radius: 8px;
-      text-decoration: none;
+      background: var(--accent);
+      color: var(--background);
+      font-weight: 700;
       transition: 0.2s;
     }
 
     .btn:hover {
-      background-color: #7dd3fc;
+      background: var(--accent-light);
       text-decoration: none;
       transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background-color: transparent;
-      color: #38bdf8;
-      border: 1px solid #38bdf8;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
     }
 
     .btn-secondary:hover {
-      background-color: #1e293b;
-      color: #7dd3fc;
+      background: var(--surface);
+      color: var(--accent-light);
+    }
+
+    /* MAIN SECTIONS */
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
     }
 
     section {
-      max-width: 950px;
-      margin: auto;
-      padding: 40px 20px;
+      padding: 30px 0;
+      scroll-margin-top: 85px;
     }
 
     h2 {
-      border-bottom: 2px solid #334155;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      margin-top: 40px;
-      color: #f8fafc;
+      font-size: 1.75rem;
+      margin: 20px 0 25px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      color: var(--heading);
     }
 
     h3 {
+      color: var(--heading);
       margin-top: 0;
-      color: #f8fafc;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin-top: 10px;
     }
 
     .card {
-      background-color: #1e293b;
-      padding: 24px;
+      background: var(--surface);
+      padding: 26px;
       border-radius: 14px;
       margin-bottom: 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
     }
 
@@ -113,33 +218,7 @@
     }
 
     .card li {
-      margin-bottom: 10px;
-    }
-
-    .project-links {
-      margin-top: 14px;
-    }
-
-    .project-links a {
-      display: inline-block;
-      margin-right: 14px;
-      margin-top: 6px;
-      font-weight: 600;
-    }
-
-    .tags {
-      margin-top: 14px;
-    }
-
-    .tag {
-      display: inline-block;
-      background-color: #0f172a;
-      color: #bae6fd;
-      padding: 6px 10px;
-      border-radius: 999px;
-      margin: 4px 4px 4px 0;
-      font-size: 0.9rem;
-      border: 1px solid #334155;
+      margin-bottom: 9px;
     }
 
     .grid {
@@ -148,32 +227,140 @@
       gap: 20px;
     }
 
-    a {
-      color: #38bdf8;
-      text-decoration: none;
+    .grid .card {
+      margin-bottom: 0;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 15px;
     }
+
+    /* TAGS */
+
+    .tags {
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--background);
+      color: #bae6fd;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 5px 11px;
+      margin: 4px 4px 4px 0;
+      font-size: 0.85rem;
+    }
+
+    /* PROJECTS */
+
+    .project-links {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .project-links a {
+      font-weight: 600;
+    }
+
+    .featured-label {
+      display: inline-block;
+      color: #86efac;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+      margin-bottom: 25px;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-item h3 {
+      margin-bottom: 2px;
+    }
+
+    .experience-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 0 0 8px;
+    }
+
+    /* CONTACT */
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
 
     footer {
       text-align: center;
-      padding: 24px;
-      color: #64748b;
+      padding: 30px 20px;
+      color: #94a3b8;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.1rem;
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 0.85rem;
       }
 
       header {
-        padding: 50px 18px;
+        padding: 65px 18px;
       }
 
-      .btn {
-        width: 80%;
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      section {
+        scroll-margin-top: 135px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
       }
     }
   </style>
@@ -181,233 +368,730 @@
 
 <body>
 
-  <header>
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-container">
+      <a class="logo" href="#home">IBR.</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <header id="home">
     <div class="hero-content">
+
       <h1>Isaac Balam Rodríguez</h1>
-      <p class="highlight">Backend Developer | Cybersecurity & Cloud-Native Projects | Software Engineering Master's Student</p>
-      <p>
-        I build backend services, REST APIs and security-focused technical applications using Python,
-        FastAPI, PostgreSQL, Docker and Linux.
-      </p>
-      <p>
-        Interested in backend engineering, cybersecurity, networking and distributed systems.
+
+      <p class="hero-title">
+        Software Engineering | Backend Development |
+        Networking & Cybersecurity
       </p>
 
+      <p class="hero-description">
+        Master's student at Sorbonne Université with professional
+        experience in IT infrastructure and network security.
+        I build backend applications and REST APIs using Python,
+        Java, FastAPI, PostgreSQL and Docker.
+      </p>
+
+      <div class="availability">
+        Seeking a 4–6 month internship | Paris, France
+      </div>
+
       <div class="hero-buttons">
-        <a href="https://netsentinel-api.onrender.com/dashboard" target="_blank" class="btn">Live Demo</a>
-        <a href="https://github.com/balam0o" target="_blank" class="btn">GitHub</a>
-        <a href="cv.pdf" target="_blank" class="btn">View CV</a>
-        <a href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+
+        <a href="#projects" class="btn">
+          View Projects
+        </a>
+
+        <a href="cv.pdf" target="_blank"
+           rel="noopener noreferrer" class="btn">
+          Download CV
+        </a>
+
+        <a href="https://github.com/balam0o"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-secondary">
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-secondary">
+          LinkedIn
+        </a>
+
       </div>
     </div>
   </header>
 
-  <section>
-    <h2>Profile</h2>
-    <div class="card">
-      <p>
-        I am a Software Engineering Master's student focused on backend development,
-        REST API design, databases, cybersecurity-oriented applications and distributed systems.
-        I enjoy building practical projects that combine software engineering, Linux,
-        networking, cloud-native tooling and security event processing.
-      </p>
-    </div>
+  <main>
 
-    <h2>Featured Projects</h2>
+    <!-- ABOUT -->
 
-    <div class="card">
-      <h3>NetSentinel Lab</h3>
-      <p>
-        Cloud-native security event correlation platform built with FastAPI, PostgreSQL, Docker
-        and a lightweight investigation dashboard. It ingests normalized security events,
-        correlates them into incidents, and supports operational investigation workflows.
-      </p>
+    <section id="about">
 
-      <ul>
-        <li>Built security event ingestion endpoints for generic, Falco-style and Suricata-style events.</li>
-        <li>Implemented configurable incident correlation rules, severity escalation, reopening logic and attack-chain workflows.</li>
-        <li>Designed investigation endpoints for incident detail, timeline, enrichment, CSV export and JSON export.</li>
-        <li>Added API key authentication, Swagger authorization support and a live dashboard with filtering, charts and incident actions.</li>
-        <li>Containerized the application with Docker, added automated tests with pytest and CI with GitHub Actions.</li>
-        <li>Deployed the project publicly on Render with PostgreSQL integration.</li>
-      </ul>
+      <h2>About Me</h2>
 
-      <div class="tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag">Python</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">SQLAlchemy</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Render</span>
-        <span class="tag">Cybersecurity</span>
-        <span class="tag">REST API</span>
-        <span class="tag">pytest</span>
-        <span class="tag">GitHub Actions</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://netsentinel-api.onrender.com/dashboard" target="_blank">Live Demo</a>
-        <a href="https://netsentinel-api.onrender.com/docs" target="_blank">API Docs</a>
-        <a href="https://github.com/balam0o/NetSentinel-lab" target="_blank">View on GitHub</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Network Incident API</h3>
-      <p>
-        Backend REST API for managing network security incidents, assets and users,
-        with authentication, relational persistence, automated testing and containerized deployment.
-      </p>
-
-      <ul>
-        <li>Designed REST endpoints for incidents, assets, users and statistics.</li>
-        <li>Implemented authentication with JWT.</li>
-        <li>Used PostgreSQL with Alembic migrations.</li>
-        <li>Containerized the application with Docker and Docker Compose.</li>
-        <li>Added automated tests with pytest.</li>
-      </ul>
-
-      <div class="tags">
-        <span class="tag">FastAPI</span>
-        <span class="tag">Python</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">JWT</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Alembic</span>
-        <span class="tag">pytest</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://github.com/balam0o/Network-Incident-Api" target="_blank">View on GitHub</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Personal Portfolio Website</h3>
-      <p>
-        Personal website used to present my profile, technical projects, CV and contact information.
-        Deployed with a custom domain and maintained through GitHub.
-      </p>
-
-      <ul>
-        <li>Created a responsive single-page portfolio.</li>
-        <li>Organized technical projects and professional links.</li>
-        <li>Used a clean static HTML/CSS structure for fast deployment.</li>
-      </ul>
-
-      <div class="tags">
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">Responsive Design</span>
-        <span class="tag">GitHub Pages</span>
-      </div>
-
-      <div class="project-links">
-        <a href="https://balamrodriguez.com/" target="_blank">View Website</a>
-        <a href="https://github.com/balam0o/balamrodriguez.com" target="_blank">View Repository</a>
-      </div>
-    </div>
-
-    <h2>Other Technical Projects</h2>
-
-    <div class="grid">
       <div class="card">
-        <h3>Network Traffic Simulation with NS2</h3>
+
         <p>
-          Simulated Poisson traffic across multiple nodes to analyze packet loss,
-          delay and throughput under constrained network conditions.
+          I am a Master's student in the DIGIT program at
+          Sorbonne Université in Paris, with a background
+          in computer science, software development,
+          networking and IT infrastructure.
         </p>
+
+        <p>
+          My recent work focuses on backend engineering:
+          designing REST APIs, managing relational databases,
+          implementing authentication and automated testing,
+          and deploying containerized applications.
+        </p>
+
+        <p>
+          Before pursuing my master's degree, I gained
+          professional experience in technical support,
+          network security, infrastructure administration
+          and software development.
+        </p>
+
+        <p>
+          I am particularly interested in reliable software
+          systems, backend architectures, cloud technologies
+          and the intersection of software engineering
+          with networking and cybersecurity.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+
+    <section id="projects">
+
+      <h2>Featured Projects</h2>
+
+      <!-- NETSENTINEL -->
+
+      <div class="card">
+
+        <span class="featured-label">Featured Project</span>
+
+        <h3>NetSentinel Lab</h3>
+
+        <p>
+          Security event correlation platform built with
+          FastAPI, PostgreSQL and Docker, featuring a
+          web-based investigation dashboard and publicly
+          deployed backend services.
+        </p>
+
+        <p>
+          The system processes normalized security events,
+          applies configurable correlation rules and
+          groups related events into incidents to support
+          security investigation workflows.
+        </p>
+
+        <ul>
+          <li>
+            Designed REST endpoints for security event
+            ingestion and incident management.
+          </li>
+
+          <li>
+            Implemented configurable correlation rules,
+            severity escalation and incident reopening.
+          </li>
+
+          <li>
+            Built incident investigation endpoints for
+            timelines, enrichment and data export.
+          </li>
+
+          <li>
+            Implemented API key authentication and
+            interactive Swagger documentation.
+          </li>
+
+          <li>
+            Developed a lightweight dashboard with
+            filtering, charts and incident actions.
+          </li>
+
+          <li>
+            Containerized the application and integrated
+            automated tests and GitHub Actions CI.
+          </li>
+
+          <li>
+            Deployed the application on Render with
+            PostgreSQL persistence.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLAlchemy</span>
+          <span class="tag">Docker</span>
+          <span class="tag">pytest</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Cybersecurity</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://netsentinel-api.onrender.com/dashboard"
+             target="_blank" rel="noopener noreferrer">
+            Live Demo
+          </a>
+
+          <a href="https://netsentinel-api.onrender.com/docs"
+             target="_blank" rel="noopener noreferrer">
+            API Documentation
+          </a>
+
+          <a href="https://github.com/balam0o/NetSentinel-Lab"
+             target="_blank" rel="noopener noreferrer">
+            GitHub Repository
+          </a>
+        </div>
+
+      </div>
+
+      <!-- NETWORK INCIDENT API -->
+
+      <div class="card">
+
+        <h3>Network Incident API</h3>
+
+        <p>
+          Backend REST API for managing network security
+          incidents, assets and users, with authentication,
+          relational persistence, automated testing and
+          containerized execution.
+        </p>
+
+        <ul>
+          <li>
+            Designed REST endpoints for incidents,
+            assets, users and statistics.
+          </li>
+
+          <li>
+            Implemented JWT-based authentication.
+          </li>
+
+          <li>
+            Integrated PostgreSQL and SQLAlchemy
+            with Alembic database migrations.
+          </li>
+
+          <li>
+            Containerized the application using
+            Docker and Docker Compose.
+          </li>
+
+          <li>
+            Added automated API tests using pytest.
+          </li>
+        </ul>
+
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">JWT</span>
+          <span class="tag">Alembic</span>
+          <span class="tag">Docker</span>
+          <span class="tag">pytest</span>
+        </div>
+
+        <div class="project-links">
+          <a href="https://github.com/balam0o/Network-Incident-Api"
+             target="_blank" rel="noopener noreferrer">
+            GitHub Repository
+          </a>
+        </div>
+
+      </div>
+
+      <!-- NETWORK ANALYSIS -->
+
+      <div class="card">
+
+        <h3>Network Traffic Simulation with NS2</h3>
+
+        <p>
+          Network simulation project focused on studying
+          traffic behavior and performance under constrained
+          network conditions.
+        </p>
+
+        <ul>
+          <li>
+            Simulated Poisson traffic across multiple
+            network nodes.
+          </li>
+
+          <li>
+            Analyzed packet loss, network delay
+            and throughput.
+          </li>
+
+          <li>
+            Used simulation results to evaluate
+            network performance.
+          </li>
+        </ul>
+
         <div class="tags">
           <span class="tag">NS2</span>
           <span class="tag">C++</span>
           <span class="tag">Bash</span>
           <span class="tag">Networking</span>
         </div>
+
       </div>
 
-      <div class="card">
-        <h3>Machine Learning Experiments</h3>
-        <p>
-          Built classification workflows using preprocessing, feature analysis and
-          model evaluation to compare predictive performance.
-        </p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Scikit-learn</span>
+      <!-- OTHER PROJECTS -->
+
+      <h2>Other Technical Projects</h2>
+
+      <div class="grid">
+
+        <div class="card">
+
+          <h3>Network Traffic Analyzer</h3>
+
+          <p>
+            Python command-line tool for analyzing
+            network packet captures and extracting
+            protocol-level traffic statistics.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">PCAP</span>
+            <span class="tag">TCP/IP</span>
+            <span class="tag">Networking</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/balam0o/Network-Traffic-Analyzer"
+               target="_blank" rel="noopener noreferrer">
+              View Repository
+            </a>
+          </div>
+
         </div>
+
+        <div class="card">
+
+          <h3>Machine Learning Experiments</h3>
+
+          <p>
+            Classification workflows involving data
+            preprocessing, feature analysis, model
+            evaluation and predictive performance
+            comparisons.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Personal Portfolio Website</h3>
+
+          <p>
+            Responsive personal website designed to
+            present technical projects, professional
+            experience and contact information.
+            Hosted using GitHub Pages and a custom domain.
+          </p>
+
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Responsive Design</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/balam0o/balamrodriguez.com"
+               target="_blank" rel="noopener noreferrer">
+              View Repository
+            </a>
+          </div>
+
+        </div>
+
       </div>
-    </div>
 
-    <h2>Technical Skills</h2>
+    </section>
 
-    <div class="grid">
+    <!-- PROFESSIONAL EXPERIENCE -->
+
+    <section id="experience">
+
+      <h2>Professional Experience</h2>
+
       <div class="card">
-        <h3>Web & Backend</h3>
-        <ul>
-          <li>REST API development</li>
-          <li>FastAPI</li>
-          <li>Authentication with JWT and API keys</li>
-          <li>PostgreSQL / SQLAlchemy</li>
-          <li>Backend testing and API design</li>
-        </ul>
+
+        <div class="experience-item">
+
+          <h3>Technical Support Engineer</h3>
+
+          <p class="experience-date">
+            Ziff Davis / VIPRE | 2023–2024
+          </p>
+
+          <p>
+            Provided technical support and troubleshooting
+            for business customers, working with network
+            security products, connectivity and
+            infrastructure-related issues.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Network Security</span>
+            <span class="tag">Technical Troubleshooting</span>
+            <span class="tag">VPN</span>
+            <span class="tag">Firewalls</span>
+          </div>
+
+        </div>
+
+        <div class="experience-item">
+
+          <h3>IT Manager</h3>
+
+          <p class="experience-date">
+            Operadora de Servicios Integrales | 2022–2023
+          </p>
+
+          <p>
+            Worked on IT infrastructure administration,
+            technical support and maintenance of internal
+            systems and services.
+          </p>
+
+          <div class="tags">
+            <span class="tag">IT Infrastructure</span>
+            <span class="tag">Systems Administration</span>
+            <span class="tag">Technical Support</span>
+          </div>
+
+        </div>
+
+        <div class="experience-item">
+
+          <h3>Software Development Intern</h3>
+
+          <p class="experience-date">
+            Continental | 2022
+          </p>
+
+          <p>
+            Participated in software development and
+            process automation activities using Java.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Software Development</span>
+            <span class="tag">Automation</span>
+          </div>
+
+        </div>
+
       </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+      <h2>Education</h2>
+
+      <div class="grid">
+
+        <div class="card">
+
+          <h3>Sorbonne Université</h3>
+
+          <p class="subtitle">
+            Paris, France
+          </p>
+
+          <p>
+            <strong>
+              Master's Program — DIGIT
+            </strong>
+          </p>
+
+          <p>
+            Advanced studies in networking,
+            distributed systems and digital
+            infrastructure technologies.
+          </p>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Universidad de Guadalajara</h3>
+
+          <p class="subtitle">
+            Guadalajara, Mexico
+          </p>
+
+          <p>
+            <strong>
+              Computer Science
+            </strong>
+          </p>
+
+          <p>
+            Academic foundation in programming,
+            algorithms, software development,
+            computer systems and networking.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+
+    <section id="skills">
+
+      <h2>Technical Skills</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Programming & Backend</h3>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">C++</span>
+            <span class="tag">Bash</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JWT</span>
+            <span class="tag">API Authentication</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Databases</h3>
+
+          <div class="tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SQL</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">Alembic</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Cloud & DevOps</h3>
+
+          <div class="tags">
+            <span class="tag">Docker</span>
+            <span class="tag">Docker Compose</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Render</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Testing & Security</h3>
+
+          <div class="tags">
+            <span class="tag">pytest</span>
+            <span class="tag">API Testing</span>
+            <span class="tag">JWT</span>
+            <span class="tag">API Keys</span>
+            <span class="tag">Security Events</span>
+            <span class="tag">Incident Management</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Networking & Systems</h3>
+
+          <div class="tags">
+            <span class="tag">TCP/IP</span>
+            <span class="tag">VPN</span>
+            <span class="tag">Firewalls</span>
+            <span class="tag">Network Troubleshooting</span>
+            <span class="tag">Network Simulation</span>
+            <span class="tag">Distributed Systems</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Data & Machine Learning</h3>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">NumPy</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- INTERNSHIP OBJECTIVE -->
+
+    <section id="opportunities">
+
+      <h2>What I'm Looking For</h2>
 
       <div class="card">
-        <h3>Programming</h3>
-        <ul>
-          <li>Python</li>
-          <li>C++</li>
-          <li>Java</li>
-          <li>Bash</li>
-          <li>HTML / CSS</li>
-        </ul>
+
+        <h3>Software Engineering Internship</h3>
+
+        <p>
+          I am seeking a 4–6 month internship in
+          Paris or Île-de-France, starting in
+          late 2026 or early 2027.
+        </p>
+
+        <p>
+          My main interests include backend engineering,
+          software development, REST APIs, cloud-based
+          applications and networking-related systems.
+        </p>
+
+        <p>
+          I am also open to opportunities involving
+          cybersecurity, distributed systems and applied
+          artificial intelligence where software
+          engineering plays a central role.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Backend Development</span>
+          <span class="tag">Software Engineering</span>
+          <span class="tag">Cloud</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Applied AI</span>
+        </div>
+
+        <div class="project-links">
+          <a href="mailto:isaac@balamrodriguez.com">
+            Contact Me
+          </a>
+        </div>
+
       </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <h2>Contact</h2>
 
       <div class="card">
-        <h3>Tools & Systems</h3>
-        <ul>
-          <li>Linux</li>
-          <li>Git / GitHub</li>
-          <li>Docker / Docker Compose</li>
-          <li>GitHub Actions</li>
-          <li>Render deployment</li>
-        </ul>
+
+        <h3>Let's Connect</h3>
+
+        <p>
+          Interested in my projects or professional
+          background? Feel free to contact me.
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          Paris, France
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:isaac@balamrodriguez.com">
+            isaac@balamrodriguez.com
+          </a>
+        </p>
+
+        <div class="contact-links">
+
+          <a class="btn"
+             href="mailto:isaac@balamrodriguez.com">
+            Email Me
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/"
+             target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+
+          <a class="btn btn-secondary"
+             href="https://github.com/balam0o"
+             target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+
+          <a class="btn btn-secondary"
+             href="cv.pdf" target="_blank"
+             rel="noopener noreferrer">
+            Download CV
+          </a>
+
+        </div>
+
       </div>
 
-      <div class="card">
-        <h3>Networking & Security</h3>
-        <ul>
-          <li>TCP/IP</li>
-          <li>Network simulation</li>
-          <li>Security event processing</li>
-          <li>Incident-oriented backend workflows</li>
-          <li>Distributed systems fundamentals</li>
-        </ul>
-      </div>
-    </div>
+    </section>
 
-    <h2>Currently Looking For</h2>
-    <div class="card">
-      <p>
-        I am currently looking for a Software Engineering internship, especially in
-        backend engineering, web development, cybersecurity-oriented applications,
-        distributed systems or data-driven platforms.
-      </p>
-    </div>
+  </main>
 
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Email: <a href="mailto:isaac@balamrodriguez.com">isaac@balamrodriguez.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/" target="_blank">View LinkedIn</a></p>
-      <p>GitHub: <a href="https://github.com/balam0o" target="_blank">View GitHub</a></p>
-      <p>CV: <a href="cv.pdf" target="_blank">View CV</a></p>
-    </div>
-  </section>
+  <!-- FOOTER -->
 
   <footer>
-    © 2026 Isaac Balam Rodríguez Arellano
+    <p>
+      &copy; 2026 Isaac Balam Rodríguez Arellano
+    </p>
+
+    <p>
+      Built with HTML & CSS · Hosted on GitHub Pages
+    </p>
   </footer>
 
 </body>
