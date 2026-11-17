@@ -10,6 +10,13 @@
   <meta name="description"
         content="Portfolio of Isaac Balam Rodríguez, Master's student at Sorbonne Université seeking a 6-month software engineering internship. Backend development, networking and cybersecurity.">
 
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- FAVICON: CODE ICON -->
+
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Cpath d='M25 18 12 32l13 14M39 18l13 14-13 14' fill='none' stroke='%2338bdf8' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
   <style>
     :root {
       --background: #0f172a;
@@ -72,6 +79,12 @@
       color: var(--heading);
       font-weight: 700;
       font-size: 1.25rem;
+      white-space: nowrap;
+    }
+
+    .logo:hover {
+      color: var(--accent);
+      text-decoration: none;
     }
 
     .nav-links {
@@ -395,7 +408,10 @@
 
   <nav>
     <div class="nav-container">
-      <a class="logo" href="#home">IBR.</a>
+
+      <a class="logo" href="#home">
+        Isaac Balam
+      </a>
 
       <div class="nav-links">
         <a href="#about">About</a>
@@ -405,6 +421,7 @@
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
+
     </div>
   </nav>
 
@@ -431,24 +448,18 @@
         Seeking a 6-month internship | Paris, France
       </div>
 
+      <!-- BUTTON ORDER:
+           1. PROJECTS
+           2. GITHUB
+           3. LINKEDIN
+           4. CV FRANÇAIS
+           5. CV ENGLISH
+      -->
+
       <div class="hero-buttons">
 
         <a href="#projects" class="btn">
           View Projects
-        </a>
-
-        <a href="cv-fr.pdf"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-cv">
-          CV Français
-        </a>
-
-        <a href="cv-en.pdf"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn btn-cv">
-          CV English
         </a>
 
         <a href="https://github.com/balam0o"
@@ -465,7 +476,22 @@
           LinkedIn
         </a>
 
+        <a href="cv-fr.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-cv">
+          CV Français
+        </a>
+
+        <a href="cv-en.pdf"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-cv">
+          CV English
+        </a>
+
       </div>
+
     </div>
   </header>
 
@@ -588,6 +614,7 @@
         </div>
 
         <div class="project-links">
+
           <a href="https://netsentinel-api.onrender.com/dashboard"
              target="_blank" rel="noopener noreferrer">
             Live Demo
@@ -602,6 +629,7 @@
              target="_blank" rel="noopener noreferrer">
             GitHub Repository
           </a>
+
         </div>
 
       </div>
@@ -655,10 +683,12 @@
         </div>
 
         <div class="project-links">
+
           <a href="https://github.com/balam0o/Network-Incident-Api"
              target="_blank" rel="noopener noreferrer">
             GitHub Repository
           </a>
+
         </div>
 
       </div>
@@ -725,10 +755,12 @@
           </div>
 
           <div class="project-links">
+
             <a href="https://github.com/balam0o/Network-Traffic-Analyzer"
                target="_blank" rel="noopener noreferrer">
               View Repository
             </a>
+
           </div>
 
         </div>
@@ -772,10 +804,12 @@
           </div>
 
           <div class="project-links">
+
             <a href="https://github.com/balam0o/balamrodriguez.com"
                target="_blank" rel="noopener noreferrer">
               View Repository
             </a>
+
           </div>
 
         </div>
@@ -860,6 +894,7 @@
         </div>
 
       </div>
+
     </section>
 
     <!-- EDUCATION -->
@@ -927,6 +962,7 @@
       <div class="grid">
 
         <div class="card">
+
           <h3>Programming & Backend</h3>
 
           <div class="tags">
@@ -939,9 +975,11 @@
             <span class="tag">JWT</span>
             <span class="tag">API Authentication</span>
           </div>
+
         </div>
 
         <div class="card">
+
           <h3>Databases</h3>
 
           <div class="tags">
@@ -950,9 +988,11 @@
             <span class="tag">SQLAlchemy</span>
             <span class="tag">Alembic</span>
           </div>
+
         </div>
 
         <div class="card">
+
           <h3>Cloud & DevOps</h3>
 
           <div class="tags">
@@ -964,9 +1004,11 @@
             <span class="tag">Linux</span>
             <span class="tag">Render</span>
           </div>
+
         </div>
 
         <div class="card">
+
           <h3>Testing & Security</h3>
 
           <div class="tags">
@@ -977,9 +1019,11 @@
             <span class="tag">Security Events</span>
             <span class="tag">Incident Management</span>
           </div>
+
         </div>
 
         <div class="card">
+
           <h3>Networking & Systems</h3>
 
           <div class="tags">
@@ -990,9 +1034,11 @@
             <span class="tag">Network Simulation</span>
             <span class="tag">Distributed Systems</span>
           </div>
+
         </div>
 
         <div class="card">
+
           <h3>Data & Machine Learning</h3>
 
           <div class="tags">
@@ -1002,6 +1048,7 @@
             <span class="tag">Scikit-learn</span>
             <span class="tag">Data Analysis</span>
           </div>
+
         </div>
 
       </div>
@@ -1047,9 +1094,11 @@
         </div>
 
         <div class="project-links">
+
           <a href="mailto:isaac@balamrodriguez.com">
             Contact Me
           </a>
+
         </div>
 
       </div>
@@ -1092,13 +1141,15 @@
 
           <a class="btn"
              href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             LinkedIn
           </a>
 
           <a class="btn"
              href="https://github.com/balam0o"
-             target="_blank" rel="noopener noreferrer">
+             target="_blank"
+             rel="noopener noreferrer">
             GitHub
           </a>
 
@@ -1127,6 +1178,7 @@
   <!-- FOOTER -->
 
   <footer>
+
     <p>
       &copy; 2026 Isaac Balam Rodríguez Arellano
     </p>
@@ -1134,6 +1186,7 @@
     <p>
       Built with HTML & CSS · Hosted on GitHub Pages
     </p>
+
   </footer>
 
 </body>
