@@ -140,25 +140,31 @@
       margin-top: 30px;
     }
 
+    /* GENERAL BUTTONS - DARK BACKGROUND */
+
     .btn {
       display: inline-block;
       margin: 7px;
       padding: 12px 20px;
       border-radius: 8px;
-      background: var(--accent);
-      color: var(--background);
+      background: var(--background);
+      color: var(--accent);
+      border: 1px solid var(--accent);
       font-weight: 700;
+      text-decoration: none;
       transition: 0.2s;
     }
 
     .btn:hover {
-      background: var(--accent-light);
+      background: var(--surface);
+      color: var(--accent-light);
+      border-color: var(--accent-light);
       text-decoration: none;
       transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: transparent;
+      background: var(--background);
       color: var(--accent);
       border: 1px solid var(--accent);
     }
@@ -166,6 +172,23 @@
     .btn-secondary:hover {
       background: var(--surface);
       color: var(--accent-light);
+      border-color: var(--accent-light);
+    }
+
+    /* CV BUTTONS - LIGHT BLUE BACKGROUND */
+
+    .btn-cv {
+      background: var(--accent);
+      color: var(--background);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-cv:hover {
+      background: var(--accent-light);
+      color: var(--background);
+      border-color: var(--accent-light);
+      text-decoration: none;
+      transform: translateY(-2px);
     }
 
     /* MAIN SECTIONS */
@@ -417,28 +440,28 @@
         <a href="cv-fr.pdf"
            target="_blank"
            rel="noopener noreferrer"
-           class="btn">
+           class="btn btn-cv">
           CV Français
         </a>
 
         <a href="cv-en.pdf"
            target="_blank"
            rel="noopener noreferrer"
-           class="btn btn-secondary">
+           class="btn btn-cv">
           CV English
         </a>
 
         <a href="https://github.com/balam0o"
            target="_blank"
            rel="noopener noreferrer"
-           class="btn btn-secondary">
+           class="btn">
           GitHub
         </a>
 
         <a href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/"
            target="_blank"
            rel="noopener noreferrer"
-           class="btn btn-secondary">
+           class="btn">
           LinkedIn
         </a>
 
@@ -1067,26 +1090,26 @@
             Email Me
           </a>
 
-          <a class="btn btn-secondary"
+          <a class="btn"
              href="https://www.linkedin.com/in/isaac-balam-rodriguez-arellano-a4658421a/"
              target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
 
-          <a class="btn btn-secondary"
+          <a class="btn"
              href="https://github.com/balam0o"
              target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
 
-          <a class="btn"
+          <a class="btn btn-cv"
              href="cv-fr.pdf"
              target="_blank"
              rel="noopener noreferrer">
             CV Français
           </a>
 
-          <a class="btn btn-secondary"
+          <a class="btn btn-cv"
              href="cv-en.pdf"
              target="_blank"
              rel="noopener noreferrer">
